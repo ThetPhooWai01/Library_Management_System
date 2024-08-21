@@ -36,20 +36,27 @@ public class Main {
         }
     }
     public static void borrowBook(){
-        loadBook();
-        System.out.println("Enter 0 to back:");
-        Scanner scanner=new Scanner(System.in);
-        int input=scanner.nextInt();
-        if(input==0){
-            menu();
+        for(Book book:books){
+            if(book.isBorrow()){
+                continue;
+            }
+            System.out.println(book.getId()+","+book.getTitle()+","+book.getCategory()+","+book.getAuthor());
         }
+        System.out.println("Enter 0 to back:");
+
         System.out.println("Enter Book:");
         Scanner scanner3=new Scanner(System.in);
         int bookInput=convertToInt(scanner3.nextLine());
+        if(bookInput==0){
+            menu();
+        }
         if(bookInput==-1){
             System.out.println("Invalid Input");
             loadBook();
         }
+
+//        Scanner scanner=new Scanner(System.in);
+//        int input=scanner.nextInt();
 
         Book book=getBookById(bookInput);
         if(book==null){
@@ -80,9 +87,11 @@ public class Main {
             System.out.println("Invalid Input");
             loadBook();
         }
-
+        UserService userService=new UserService();
+        userService.saveUserInfo(user);
         BookService bookService=new BookService();
         bookService.borrowBook(user,book,days,books);
+
 
 
     }
@@ -111,7 +120,7 @@ public class Main {
 
     }
     public static void loadBook(){
-        if(books.isEmpty()){
+        if(!books.isEmpty()){
             return;
         }
         Book book1=new Book(1,"Essential Moe","Juu",Category.JUU,false);

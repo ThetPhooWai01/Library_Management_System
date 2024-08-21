@@ -1,0 +1,7 @@
+miki,Essential Moe,2
+TawTharr,အမှတ်တရ,3
+hh,HP1,6
+kokoAhkar,Essential Moe,3
+KOKO,Essential Moe,1
+MaMa,HP1,1
+jj,LOR1,2
