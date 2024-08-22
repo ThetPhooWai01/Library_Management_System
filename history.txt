@@ -5,3 +5,10 @@ kokoAhkar,Essential Moe,3
 KOKO,Essential Moe,1
 MaMa,HP1,1
 jj,LOR1,2
+jjj,LOR2,-1
+hh,HP2,3
+tt,HP2,4
+trw,HP2,2
+kiko,အမှတ်တရ,2
+uyt,HP1,2
+ee,အမှတ်တရ,2

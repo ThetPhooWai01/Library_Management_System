@@ -78,10 +78,10 @@ public class FileService implements IFileService {
             while (scanner.hasNext()){
                 String[] line=scanner.nextLine().split(",");
                 User user=new User();
-                user.setId(Integer.parseInt(line[0]));
-                user.setName(line[1]);
-                user.setAge(Integer.parseInt(line[2]));
-                user.setGrade(Integer.parseInt(line[3]));
+
+                user.setName(line[0]);
+                user.setAge(Integer.parseInt(line[1]));
+                user.setGrade(Integer.parseInt(line[2]));
                 userInfo.add(user);
 
             }

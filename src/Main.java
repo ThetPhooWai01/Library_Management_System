@@ -23,6 +23,7 @@ public class Main {
                 borrowBook();
                 break;
             case 2:
+
                 returnBook();
                 break;
             case 3:
@@ -91,6 +92,7 @@ public class Main {
         userService.saveUserInfo(user);
         BookService bookService=new BookService();
         bookService.borrowBook(user,book,days,books);
+        menu();
 
 
 
@@ -113,6 +115,36 @@ public class Main {
     }
 
     public static void returnBook(){
+        for(Book book:books){
+            if(book.isBorrow()){
+                continue;
+            }
+            System.out.println(book.getId()+","+book.getTitle()+","+book.getCategory()+","+book.getAuthor());
+        }
+        System.out.println("Enter 0 to back:");
+
+        System.out.println("Enter Book:");
+        Scanner scanner3=new Scanner(System.in);
+        int bookInput=convertToInt(scanner3.nextLine());
+        if(bookInput==0){
+            menu();
+        }
+        if(bookInput==-1){
+            System.out.println("Invalid Input");
+            loadBook();
+        }
+//        Scanner scanner=new Scanner(System.in);
+//        int book=convertToInt(scanner.nextLine());
+        for(Book book1:books){
+            if(book1.getId()==bookInput && book1.isBorrow()){
+                book1.setBorrow(false);
+
+            }else{
+                System.out.println("Invalid Input");
+                returnBook();
+            }
+        }
+        menu();
 
     }
 
